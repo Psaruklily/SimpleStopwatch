@@ -1,7 +1,7 @@
 <div class="main-content">
     <button (click)="toggleStartStop()">Start/Stop</button>
     <button #btnWait>Wait</button>
-    <button>Reset</button>
+    <button (click)="resetTimer()">Reset</button>
 
     <p>{{time.toISOString().substr(11, 8)}}</p>
 </div>

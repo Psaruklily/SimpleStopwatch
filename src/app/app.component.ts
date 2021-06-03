@@ -1,5 +1,5 @@
-import { Component, ViewChild, ElementRef, OnInit, ComponentFactoryResolver } from '@angular/core';
-import { Observable, fromEvent } from 'rxjs';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { fromEvent } from 'rxjs';
 import { debounceTime, buffer, filter, map } from 'rxjs/operators';
 
 @Component({
@@ -32,7 +32,6 @@ export class AppComponent implements OnInit {
     )
     
     doubleClicks.subscribe(() => {
-      console.log('doubleclick');
       this.stopTimer();
       this.isToggled = false;
     })
@@ -56,5 +55,10 @@ export class AppComponent implements OnInit {
     } else {
       this.stopTimer();
     }
+  }
+
+  resetTimer():void {
+    this.time.setSeconds(0);
+    this.startTimer();
   }
 }
